@@ -17,7 +17,7 @@ map:
 options:
   default_backend: "192.168.8.224:4443"
   routes:
-    - hostname: proxy.pool-io.com
+    - hostname: proxy.example.com
       backend: "192.168.8.224:3129"
 schema:
   default_backend: match(^[^:\s]+:[0-9]{1,5}$)
