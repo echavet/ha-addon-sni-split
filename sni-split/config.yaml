@@ -1,0 +1,26 @@
+name: Relais par nom
+version: 1.0.0
+slug: sni_split
+description: Oriente le port 443 selon le nom demandé, sans déchiffrer
+url: https://github.com/echavet/ha-addon-sni-split
+arch:
+  - aarch64
+  - amd64
+  - armv7
+startup: services
+boot: manual
+init: false
+ports:
+  "443/tcp": 443
+map:
+  - share:rw
+options:
+  default_backend: "192.168.8.224:4443"
+  routes:
+    - hostname: proxy.pool-io.com
+      backend: "192.168.8.224:3129"
+schema:
+  default_backend: match(^[^:\s]+:[0-9]{1,5}$)
+  routes:
+    - hostname: match(^[a-zA-Z0-9.-]+$)
+      backend: match(^[^:\s]+:[0-9]{1,5}$)

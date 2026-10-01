@@ -1,0 +1,13 @@
+configuration:
+  default_backend:
+    name: Destination par défaut
+    description: Adresse et port pour tous les noms non listés. Exemple 192.168.8.224:4443
+  routes:
+    name: Routes
+    description: Nom demandé et destination
+    hostname:
+      name: Nom demandé
+      description: Exemple proxy.pool-io.com
+    backend:
+      name: Destination
+      description: Adresse et port. Exemple 192.168.8.224:3129
